@@ -1,0 +1,32 @@
+
+
+<div class="product-card">
+ 
+  <div class="product-tumb">
+    <img
+    [src]="product.thumbnail"
+    alt="{{ product.title }}"
+    class="card-img-top  mx-auto"
+   
+  />
+  </div>
+  <div class="product-details">
+    <span
+        class="d-block"
+        [ngClass]="product.stock === 0 ? 'out-of-stock' : 'in-stock'"
+      >
+    {{ product.stock === 0 ? "Out of Stock" : "In Stock" }}</span>
+    <h4><a href="">{{ product.title }}</a></h4>
+    <div class="">{{ product.price | currency : "EGP" }}</div>
+    <p class=" card-text">Category: {{ product.category }}</p>
+  
+    <div class="product-bottom-details">
+     
+        <button class="btn btn-success p-2 btn-lg me-2" (click)="onAddToCartClick()" >Add to cart</button>
+        <a class="btn btn-success btn  p-2 btn-lg" [routerLink]="['/product', product.id]"
+        >See Details</a
+        >
+  
+    </div>
+  </div>
+</div>
